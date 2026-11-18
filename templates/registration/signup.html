@@ -1,0 +1,23 @@
+{% extends "pages/base.html" %}
+{% block title %}Sign up | SimpleSite{% endblock %}
+{% block content %}
+<section class="card">
+    {% if verified_email %}
+    <h1>Finish creating your account</h1>
+    <p>Email verified: <strong>{{ verified_email }}</strong></p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="button" type="submit">Sign up</button>
+    </form>
+    {% else %}
+    <h1>Sign up</h1>
+    <p>Enter your email address and we will send you a verification code.</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="button" type="submit">Send verification code</button>
+    </form>
+    {% endif %}
+</section>
+{% endblock %}

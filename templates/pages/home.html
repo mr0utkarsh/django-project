@@ -1,0 +1,10 @@
+{% extends "pages/base.html" %}
+{% block title %}SimpleSite | Home{% endblock %}
+{% block content %}
+<section class="card">
+    <h1>A simple place to get started</h1>
+    <p>Welcome to SimpleSite, a clean demo website built with Django. Create an account, sign in, or send us an enquiry.</p>
+    <a class="button" href="{% url 'enquiry' %}">Send an enquiry</a>
+    {% if not user.is_authenticated %}<a class="button secondary" href="{% url 'signup' %}">Create account</a>{% endif %}
+</section>
+{% endblock %}

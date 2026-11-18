@@ -1,0 +1,13 @@
+{% extends "pages/base.html" %}
+{% block title %}Enquiry | SimpleSite{% endblock %}
+{% block content %}
+<section class="card">
+    <h1>Send an enquiry</h1>
+    <p>Fill in the form and we will get back to you.</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="button" type="submit">Send message</button>
+    </form>
+</section>
+{% endblock %}
